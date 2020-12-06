@@ -2,8 +2,11 @@
 
 set -e
 
+cd ~  # set home as base
+
 setup_file(){
-    curl "https://raw.githubusercontent.com/meain/minimal-dotfiles/master/$1" > ~/"$1"
+    [ -f "$1" ] && mv "$1" "$1.bkp.$(date +%s)"
+    curl "https://raw.githubusercontent.com/meain/minimal-dotfiles/master/$1" > "$1"
 }
 
 setup_file .tmux.conf
