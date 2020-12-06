@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+setup_file(){
+    curl "https://raw.githubusercontent.com/meain/minimal-dotfiles/master/$1" > ~/"$1"
+}
+
+setup_file .tmux.conf
+setup_file .bashrc
+setup_file .inputrc
